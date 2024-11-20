@@ -9,7 +9,7 @@ html
        a{color:blue;}
        body{background-color:yellow}
   body
-    h1 Sign Up
+    h1 Psychologist Sign Up
     if error
       p.error #{error} // Display any error messages
     form(action='/auth/signup', method='POST')
@@ -19,6 +19,12 @@ html
       div
         label(for='password') Password:
         input(type='password', name='password', required)
+      div
+        label(for='email') Email:
+        input(type='email', name='email', required) 
+      div
+        label(for='phdoc') Password:
+        input(type="file" ,accept=".jpg,.jpeg,.png", name='phdoc', required)   
       div
         button(type='submit') Sign Up
     p Already have an account? 
