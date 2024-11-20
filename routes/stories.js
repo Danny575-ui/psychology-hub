@@ -20,6 +20,23 @@ const stories = [
 // Render stories page
 router.get('/', (req, res) => {
   res.render('stories', { stories });
+ });
+
+
+router.post('/submit', (req, res) => {
+  const { title, content, author } = req.body; // Get data from the request
+  if (title && content && author) {
+      // Push the new problem into the in-memory array
+      stories.push({
+          title,
+          content,
+          author,
+          date: new Date(),
+      });
+      res.redirect('/stories'); // Redirect to problems page after submission
+  } else {
+      res.status(400).send('All fields are required.');
+  }
 });
 
 module.exports = router;
