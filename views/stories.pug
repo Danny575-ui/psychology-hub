@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Stories - Psychology Hub
+    link(rel="stylesheet", type="text/css", href="..public/stylesheets/style.css")
+  body
+    h1 Stories
+
+    // Display existing stories
+    each story in stories
+      div.story
+        h2= story.title
+        p= story.content
+        p.by Author: #{story.author} | Date: #{story.date.toDateString()}
+    
+    // Form to submit a new story
+    h2 Submit a New Story
+    form(action='/stories/submit', method='POST')
+      div
+        label(for='title') Title:
+        input(type='text', name='title', required)
+      div
+        label(for='content') Content:
+        textarea(name='content', required)
+      div
+        label(for='author') Author (your name):
+        input(type='text', name='author', required)
+      div
+        button(type='submit') Submit
+
+    a(href='/problems') Go to Problems Page
+    a(href='/auth/login') Login
+    a(href='/auth/signup') Sign Up

@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Problems - Psychology Hub
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 Problems
+
+    // Display existing problems
+    each problem in problems
+      div.problem
+        h2= problem.title
+        p= problem.content
+        p.by Author: #{problem.author} | Date: #{problem.date.toDateString()}
+    
+    // Form to submit a new problem
+    h2 Submit a New Problem
+    form(action='/problems/submit', method='POST')
+      div
+        label(for='title') Title:
+        input(type='text', name='title', required)
+      div
+        label(for='content') Content:
+        textarea(name='content', required)
+      div
+        label(for='author') Author (your name):
+        input(type='text', name='author', required)
+      div
+        button(type='submit') Submit
+
+    a(href='/stories') Go to Stories Page
+    a(href='/auth/login') Login
+    a(href='/auth/signup') Sign Up

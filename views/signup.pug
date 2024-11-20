@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Sign Up - Psychology Hub
+    style.
+       h1{text-align:center}
+       a:hover{color:red}
+       a:visited{color:darkblue}
+       a{color:blue;}
+       body{background-color:yellow}
+  body
+    h1 Sign Up
+    if error
+      p.error #{error} // Display any error messages
+    form(action='/auth/signup', method='POST')
+      div
+        label(for='username') Username:
+        input(type='text', name='username', required)
+      div
+        label(for='password') Password:
+        input(type='password', name='password', required)
+      div
+        button(type='submit') Sign Up
+    p Already have an account? 
+    a(href='/auth/login') Login
